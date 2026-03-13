@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 import { SectionShell } from '@/components/SectionShell';
 import { ASSETS } from '@/data/assets';
 
@@ -14,6 +15,16 @@ export default function Page() {
       <p className="text-white/80 font-bold max-w-3xl">
         Aquí van tus proyectos. Reemplaza las imágenes en <span className="font-black">/public/assets/portfolio</span>.
       </p>
+
+      <div className="mt-8 flex flex-wrap gap-3">
+        <Link href="/portafolio/casos" className="btn-nimbus">Ver portafolio (blog)</Link>
+        <Link
+          href="/contacto"
+          className="border-2 border-white px-8 py-4 font-black uppercase hover:bg-white hover:text-black transition"
+        >
+          Cotizar
+        </Link>
+      </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-10">
         {projects.map((p) => (

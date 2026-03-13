@@ -1,10 +1,14 @@
 'use client';
 
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { ASSETS } from '@/data/assets';
 import { CutoutSlot } from '@/components/CutoutSlot';
+import { ModalShell } from '@/components/ModalShell';
+import { CLIENT_CATEGORIES, type ClientCategoryKey } from '@/data/clientCategories';
 
 export default function Page() {
+  const [openCategory, setOpenCategory] = useState<ClientCategoryKey | null>(null);
+
   useEffect(() => {
     // Navegación suave (links #)
     const anchors = Array.from(document.querySelectorAll<HTMLAnchorElement>('a[href^="#"]'));
@@ -44,6 +48,30 @@ export default function Page() {
   return (
     <div className="min-h-screen bg-[color:var(--nimbus-navy)] text-white font-sans overflow-x-hidden">
       <div className="bg-grunge" />
+
+      <ModalShell
+        open={openCategory !== null}
+        title={openCategory ? <>Clientes • {openCategory}</> : null}
+        onClose={() => setOpenCategory(null)}
+      >
+        {openCategory && (
+          <div>
+            <p className="font-bold text-zinc-700">{CLIENT_CATEGORIES[openCategory].subtitle}</p>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
+              {CLIENT_CATEGORIES[openCategory].clients.map((c) => (
+                <div key={c.name} className="bg-zinc-100 border-2 border-black p-5">
+                  <div className="text-xs font-black tracking-[0.25em] uppercase text-zinc-500">Cliente</div>
+                  <div className="font-heading text-xl font-black italic mt-2">{c.name}</div>
+                  {c.note && <div className="mt-2 font-bold text-zinc-700">{c.note}</div>}
+                  <div className="mt-4 text-[10px] font-black tracking-[0.25em] uppercase text-zinc-400">
+                    Logo placeholder → /public/assets/logos/
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+      </ModalShell>
 
       {/* Barra de Navegación */}
       <nav className="fixed w-full top-0 z-[100] px-6 py-4 flex justify-between items-center bg-[color:var(--nimbus-navy)]/80 backdrop-blur-md border-b-2 border-white/10">
@@ -236,13 +264,15 @@ export default function Page() {
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
-            {['Retail', 'Salud', 'Tech', 'Gobierno', 'Turismo'].map((label) => (
-              <div
+            {(['Retail', 'Salud', 'Tech', 'Gobierno', 'Turismo'] as ClientCategoryKey[]).map((label) => (
+              <button
+                type="button"
                 key={label}
+                onClick={() => setOpenCategory(label)}
                 className="p-8 border-2 border-white/10 hover:border-blue-600 transition flex items-center justify-center font-black italic text-xl uppercase opacity-40 hover:opacity-100"
               >
                 {label}
-              </div>
+              </button>
             ))}
           </div>
 
@@ -290,7 +320,7 @@ export default function Page() {
       <footer id="contacto" className="py-32 px-6 border-t-2 border-white/5 bg-black">
         <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-20">
           <div>
-            <h2 className="text-7xl font-black mb-12 italic leading-none font-heading">
+            <h2 className="text-5xl sm:text-6xl md:text-7xl font-black mb-10 font-heading not-italic sm:italic leading-[0.9] break-words">
               HABLEMOS <br />DE TU <span className="text-blue-600">IMPACTO.</span>
             </h2>
             <div className="space-y-6 font-bold text-xl uppercase tracking-tighter">
