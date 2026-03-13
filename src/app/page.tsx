@@ -62,20 +62,20 @@ export default function Page() {
                 <div>
                   <h4 className="font-heading text-xl mb-4 border-b-4 border-red-600 inline-block">Nuestras Soluciones</h4>
                   <ul className="space-y-3 font-bold text-sm">
-                    <li className="hover:text-blue-700 transition" onClick={() => document.getElementById('mkt-digital')?.scrollIntoView({ behavior: 'smooth' })}>
-                      / MARKETING DIGITAL
+                    <li className="hover:text-blue-700 transition">
+                      <a href="/servicios/marketing-digital">/ MARKETING DIGITAL</a>
                     </li>
-                    <li className="hover:text-blue-700 transition" onClick={() => document.getElementById('rp')?.scrollIntoView({ behavior: 'smooth' })}>
-                      / RELACIONES PÚBLICAS
+                    <li className="hover:text-blue-700 transition">
+                      <a href="/servicios/relaciones-publicas">/ RELACIONES PÚBLICAS</a>
                     </li>
-                    <li className="hover:text-blue-700 transition" onClick={() => document.getElementById('street')?.scrollIntoView({ behavior: 'smooth' })}>
-                      / STREET MARKETING
+                    <li className="hover:text-blue-700 transition">
+                      <a href="/servicios/street-marketing">/ STREET MARKETING</a>
                     </li>
-                    <li className="hover:text-blue-700 transition" onClick={() => document.getElementById('atl')?.scrollIntoView({ behavior: 'smooth' })}>
-                      / MEDIOS ATL & DISPLAY
+                    <li className="hover:text-blue-700 transition">
+                      <a href="/servicios/atl-display">/ MEDIOS ATL & DISPLAY</a>
                     </li>
-                    <li className="hover:text-blue-700 transition" onClick={() => document.getElementById('design')?.scrollIntoView({ behavior: 'smooth' })}>
-                      / DISEÑO & BRANDING
+                    <li className="hover:text-blue-700 transition">
+                      <a href="/servicios/diseno-branding">/ DISEÑO & BRANDING</a>
                     </li>
                   </ul>
                 </div>
@@ -86,13 +86,13 @@ export default function Page() {
             </div>
           </div>
 
-          <a href="#metodo" className="hover:text-red-600 transition">
+          <a href="/metodologia" className="hover:text-red-600 transition">
             Metodología
           </a>
-          <a href="#exito" className="hover:text-red-600 transition">
+          <a href="/clientes" className="hover:text-red-600 transition">
             Clientes
           </a>
-          <a href="#contacto" className="btn-nimbus">
+          <a href="/contacto" className="btn-nimbus">
             Cotizar
           </a>
         </div>
@@ -148,7 +148,7 @@ export default function Page() {
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
             <div>
-              <span className="text-red-600 font-black tracking-[0.3em]">// EL PROCESO</span>
+              <span className="text-red-600 font-black tracking-[0.3em]">EL PROCESO</span>
               <h2 className="text-5xl font-black mt-4 italic font-heading">
                 NUESTRA <span className="text-blue-600">METODOLOGÍA</span>
               </h2>
