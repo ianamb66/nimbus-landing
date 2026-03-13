@@ -149,7 +149,7 @@ export default function Page() {
           <div className="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
             <div>
               <span className="text-red-600 font-black tracking-[0.3em]">EL PROCESO</span>
-              <h2 className="text-5xl font-black mt-4 italic font-heading">
+              <h2 className="text-4xl sm:text-5xl md:text-6xl font-black mt-4 font-heading not-italic sm:italic leading-[0.95] pl-2 sm:pl-0">
                 NUESTRA <span className="text-blue-600">METODOLOGÍA</span>
               </h2>
             </div>
