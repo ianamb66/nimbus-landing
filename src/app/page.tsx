@@ -5,6 +5,7 @@ import { ASSETS } from '@/data/assets';
 import { CutoutSlot } from '@/components/CutoutSlot';
 import { ModalShell } from '@/components/ModalShell';
 import { CLIENT_CATEGORIES, type ClientCategoryKey } from '@/data/clientCategories';
+import { LeadForm } from '@/components/LeadForm';
 
 export default function Page() {
   const [openCategory, setOpenCategory] = useState<ClientCategoryKey | null>(null);
@@ -335,35 +336,8 @@ export default function Page() {
           </div>
 
           <div className="bg-zinc-900 border-4 border-white p-10 paper-clip shadow-[15px_15px_0px_#ff0000]">
-            <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
-              <div className="border-b-2 border-white/20">
-                <label className="text-[10px] font-black opacity-50 uppercase tracking-widest">¿Quién eres?</label>
-                <input
-                  type="text"
-                  placeholder="NOMBRE COMPLETO"
-                  className="w-full bg-transparent p-2 focus:outline-none font-black text-xl uppercase text-white placeholder:text-white/10"
-                />
-              </div>
-              <div className="border-b-2 border-white/20">
-                <label className="text-[10px] font-black opacity-50 uppercase tracking-widest">¿Cómo te contactamos?</label>
-                <input
-                  type="email"
-                  placeholder="E-MAIL DE NEGOCIOS"
-                  className="w-full bg-transparent p-2 focus:outline-none font-black text-xl uppercase text-white placeholder:text-white/10"
-                />
-              </div>
-              <div className="border-b-2 border-white/20">
-                <label className="text-[10px] font-black opacity-50 uppercase tracking-widest">Tu proyecto</label>
-                <textarea
-                  placeholder="CUÉNTANOS EL RETO"
-                  rows={2}
-                  className="w-full bg-transparent p-2 focus:outline-none font-black text-xl uppercase text-white placeholder:text-white/10"
-                />
-              </div>
-              <button className="btn-nimbus w-full text-2xl italic" type="submit">
-                ENVIAR SEÑAL
-              </button>
-            </form>
+            {/* Reutilizamos el mismo cuestionario del /contacto */}
+            <LeadForm source="home-footer" />
           </div>
         </div>
 

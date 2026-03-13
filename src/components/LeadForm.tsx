@@ -15,13 +15,28 @@ export function LeadForm({ source = 'contacto' }: { source?: string }) {
     setError(null);
 
     try {
-      const res = await fetch('/api/whatsapp-lead', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name, email, message, source }),
-      });
-      const data = await res.json();
-      if (!res.ok || !data?.ok) throw new Error(data?.error || 'No se pudo enviar');
+      // Enviamos a WhatsApp (Twilio) y a Google Sheets (webhook) en paralelo.
+      const payload = { name, email, message, source };
+
+      const [waRes, shRes] = await Promise.all([
+        fetch('/api/whatsapp-lead', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+        }),
+        fetch('/api/sheets-lead', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+        }),
+      ]);
+
+      const waData = await waRes.json().catch(() => null);
+      const shData = await shRes.json().catch(() => null);
+
+      if (!waRes.ok || !waData?.ok) throw new Error(waData?.error || 'No se pudo enviar WhatsApp');
+      if (!shRes.ok || !shData?.ok) throw new Error(shData?.error || 'No se pudo guardar en Sheets');
+
       setStatus('sent');
       setName('');
       setEmail('');
