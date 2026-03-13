@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { SectionShell } from '@/components/SectionShell';
+import { LeadForm } from '@/components/LeadForm';
 
 export default function Page() {
   return (
@@ -10,7 +11,7 @@ export default function Page() {
         <div>
           <h2 className="font-heading text-4xl font-black italic">Hablemos de tu impacto.</h2>
           <p className="mt-4 text-white/80 font-bold">
-            Placeholder de datos reales: correo, WhatsApp, redes. (Puedes reemplazarlo fácilmente.)
+            Al enviar el formulario, te llega un WhatsApp directo al número del equipo (API). Datos editables aquí.
           </p>
 
           <div className="mt-8 space-y-4 font-bold">
@@ -27,21 +28,7 @@ export default function Page() {
         </div>
 
         <div className="bg-zinc-900 border-4 border-white p-10 paper-clip shadow-[15px_15px_0px_#ff0000]">
-          <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
-            <div className="border-b-2 border-white/20">
-              <label className="text-[10px] font-black opacity-50 uppercase tracking-widest">¿Quién eres?</label>
-              <input type="text" placeholder="NOMBRE COMPLETO" className="w-full bg-transparent p-2 focus:outline-none font-black text-xl uppercase text-white placeholder:text-white/10" />
-            </div>
-            <div className="border-b-2 border-white/20">
-              <label className="text-[10px] font-black opacity-50 uppercase tracking-widest">¿Cómo te contactamos?</label>
-              <input type="email" placeholder="E-MAIL DE NEGOCIOS" className="w-full bg-transparent p-2 focus:outline-none font-black text-xl uppercase text-white placeholder:text-white/10" />
-            </div>
-            <div className="border-b-2 border-white/20">
-              <label className="text-[10px] font-black opacity-50 uppercase tracking-widest">Tu proyecto</label>
-              <textarea placeholder="CUÉNTANOS EL RETO" rows={2} className="w-full bg-transparent p-2 focus:outline-none font-black text-xl uppercase text-white placeholder:text-white/10" />
-            </div>
-            <button className="btn-nimbus w-full text-2xl italic" type="submit">ENVIAR SEÑAL</button>
-          </form>
+          <LeadForm source="/contacto" />
         </div>
       </div>
     </SectionShell>
