@@ -28,7 +28,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es" className={`${spaceGrotesk.variable} ${unbounded.variable}`}>
-      <body className="antialiased">{children}</body>
+      <body className="antialiased">
+        {/* Collage background layers (global) */}
+        <div className="collage-bg" aria-hidden />
+        <div className="collage-splats" aria-hidden />
+        <div className="collage-scribbles" aria-hidden />
+        <div className="collage-noise" aria-hidden />
+
+        <div className="relative z-10">{children}</div>
+      </body>
     </html>
   );
 }

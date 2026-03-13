@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="900" viewBox="0 0 1400 900">
+  <g opacity="0.95">
+    <polygon points="0,120 260,0 340,180 120,260" fill="#ff0000"/>
+    <polygon points="1140,80 1400,0 1400,260 1200,220" fill="#0046ff"/>
+    <polygon points="880,0 1040,40 960,220 780,160" fill="#ff0000" opacity="0.85"/>
+    <polygon points="90,720 340,650 420,900 0,900" fill="#0046ff" opacity="0.85"/>
+    <polygon points="1040,640 1400,520 1400,900 980,900" fill="#ff0000" opacity="0.75"/>
+  </g>
+</svg>

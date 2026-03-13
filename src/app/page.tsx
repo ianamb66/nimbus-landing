@@ -47,8 +47,6 @@ export default function Page() {
 
   return (
     <div className="min-h-screen bg-[color:var(--nimbus-navy)] text-white font-sans overflow-x-hidden">
-      <div className="bg-grunge" />
-
       <ModalShell
         open={openCategory !== null}
         title={openCategory ? <>Clientes • {openCategory}</> : null}
@@ -303,7 +301,7 @@ export default function Page() {
                 className={`bg-zinc-900 aspect-video group relative overflow-hidden border-4 border-black shadow-[10px_10px_0px_${card.shadow}]`}
               >
                 <div
-                  className="absolute inset-0 bg-cover grayscale group-hover:grayscale-0 transition duration-500 opacity-50 group-hover:opacity-100"
+                  className="absolute inset-0 bg-cover transition duration-500 opacity-55 group-hover:opacity-100 xerox-overlay"
                   style={{ backgroundImage: `url('${card.img}')` }}
                 />
                 <div className="absolute bottom-4 left-4 z-10">
