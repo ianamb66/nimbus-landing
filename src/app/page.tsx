@@ -1,6 +1,8 @@
 'use client';
 
 import React, { useEffect } from 'react';
+import { ASSETS } from '@/data/assets';
+import { CutoutSlot } from '@/components/CutoutSlot';
 
 export default function Page() {
   useEffect(() => {
@@ -127,18 +129,41 @@ export default function Page() {
 
           {/* Bento Collage Hero */}
           <div className="relative h-[500px] md:h-[600px] reveal" style={{ animationDelay: '0.3s' }}>
-            <div className="absolute top-0 left-0 w-48 h-48 bg-blue-700 paper-clip-dark rotate-[-5deg] flex flex-col justify-center items-center">
-              <span className="text-5xl font-black">+10</span>
-              <span className="text-[10px] font-black">AÑOS EXP</span>
-            </div>
-            <div className="absolute top-20 right-0 w-64 h-80 bg-white p-2 paper-clip rotate-[3deg] z-20">
-              <div className="w-full h-full bg-zinc-800 halftone flex items-center justify-center overflow-hidden">
-                <div className="text-zinc-500 font-black italic text-4xl opacity-20">VISIÓN</div>
+            <CutoutSlot
+              src={ASSETS.hero.cutouts.expCard}
+              alt="Recorte: +10 años"
+              className="absolute top-0 left-0 w-48 h-48 rotate-[-5deg]"
+              imgClassName="drop-shadow-[10px_10px_0_rgba(255,0,0,0.9)]"
+            >
+              <div className="w-full h-full bg-blue-700 paper-clip-dark flex flex-col justify-center items-center">
+                <span className="text-5xl font-black">+10</span>
+                <span className="text-[10px] font-black">AÑOS EXP</span>
               </div>
-            </div>
-            <div className="absolute bottom-10 left-10 w-72 h-40 bg-red-600 paper-clip rotate-[-2deg] flex items-center justify-center p-6 z-30">
-              <p className="text-white font-black text-2xl italic leading-none">NO SOMOS SOLO UNA AGENCIA</p>
-            </div>
+            </CutoutSlot>
+
+            <CutoutSlot
+              src={ASSETS.hero.cutouts.visionFrame}
+              alt="Recorte: visión"
+              className="absolute top-20 right-0 w-64 h-80 rotate-[3deg] z-20"
+              imgClassName="drop-shadow-[15px_15px_0_rgba(255,0,0,0.9)]"
+            >
+              <div className="w-full h-full bg-white p-2 paper-clip">
+                <div className="w-full h-full bg-zinc-800 halftone flex items-center justify-center overflow-hidden">
+                  <div className="text-zinc-500 font-black italic text-4xl opacity-20">VISIÓN</div>
+                </div>
+              </div>
+            </CutoutSlot>
+
+            <CutoutSlot
+              src={ASSETS.hero.cutouts.agencyQuote}
+              alt="Recorte: frase"
+              className="absolute bottom-10 left-10 w-72 h-40 rotate-[-2deg] z-30"
+              imgClassName="drop-shadow-[15px_15px_0_rgba(255,0,0,0.9)]"
+            >
+              <div className="w-full h-full bg-red-600 paper-clip flex items-center justify-center p-6">
+                <p className="text-white font-black text-2xl italic leading-none">NO SOMOS SOLO UNA AGENCIA</p>
+              </div>
+            </CutoutSlot>
           </div>
         </div>
       </section>

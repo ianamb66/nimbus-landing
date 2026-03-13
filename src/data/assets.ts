@@ -10,6 +10,12 @@ export const ASSETS = {
     bg: '/assets/hero/hero-bg.jpg',
     collage01: '/assets/hero/collage-01.png',
     collage02: '/assets/hero/collage-02.png',
+    // PNG recortes (si existen se sobreponen automáticamente)
+    cutouts: {
+      expCard: '/assets/hero/cutout-exp-card.png',
+      visionFrame: '/assets/hero/cutout-vision-frame.png',
+      agencyQuote: '/assets/hero/cutout-agency-quote.png',
+    },
   },
   services: {
     marketingDigital: '/assets/services/marketing-digital.jpg',
