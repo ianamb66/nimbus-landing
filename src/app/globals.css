@@ -1,0 +1,160 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+/* Nimbus theme + component CSS */
+:root {
+  --nimbus-navy: #050b1a;
+  --nimbus-red: #ff0000;
+  --nimbus-blue: #0046ff;
+  --nimbus-white: #ffffff;
+  --nimbus-black: #000000;
+}
+
+body {
+  background: var(--nimbus-navy);
+  color: var(--nimbus-white);
+  font-family: "Space Grotesk", ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  overflow-x: hidden;
+}
+
+/* Texturas de Fondo */
+.bg-grunge {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1;
+  opacity: 0.25;
+  background-image:
+    url("https://www.transparenttextures.com/patterns/asfalt-dark.png"),
+    url("https://www.transparenttextures.com/patterns/black-paper.png");
+  background-blend-mode: multiply;
+}
+
+.graphite-scratches {
+  position: absolute;
+  inset: 0;
+  background-image: url("https://www.transparenttextures.com/patterns/brushed-alum.png");
+  opacity: 0.1;
+  mix-blend-mode: overlay;
+}
+
+.font-heading {
+  font-family: "Unbounded", ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  text-transform: uppercase;
+}
+
+/* Papel Rasgado con clip-path */
+.paper-clip {
+  background-color: white;
+  color: black;
+  clip-path: polygon(0% 2%, 100% 0%, 98% 98%, 2% 100%);
+  box-shadow: 10px 10px 0px var(--nimbus-red);
+}
+
+.paper-clip-dark {
+  background-color: var(--nimbus-black);
+  color: white;
+  clip-path: polygon(1% 5%, 99% 0%, 95% 95%, 0% 100%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Menú */
+.nav-item:hover .submenu {
+  display: block;
+}
+
+.submenu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 600px;
+  background: white;
+  color: black;
+  padding: 2rem;
+  z-index: 100;
+  border: 4px solid black;
+  box-shadow: 15px 15px 0px var(--nimbus-red);
+  clip-path: polygon(0% 1%, 100% 0%, 99% 99%, 1% 100%);
+}
+
+/* Efecto Halftone */
+.halftone {
+  background-image: radial-gradient(rgba(0, 0, 0, 0.3) 10%, transparent 11%);
+  background-size: 8px 8px;
+}
+
+/* Botón */
+.btn-nimbus {
+  padding: 1rem 2rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  background: var(--nimbus-red);
+  color: white;
+  clip-path: polygon(5% 0%, 100% 5%, 95% 100%, 0% 95%);
+  transition: 0.3s;
+}
+
+.btn-nimbus:hover {
+  transform: scale(1.05) rotate(-2deg);
+  background: var(--nimbus-blue);
+}
+
+/* Metodología Hover */
+.metodo-step {
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.metodo-step:hover {
+  background: var(--nimbus-blue);
+  transform: translateY(-10px) rotate(2deg);
+  z-index: 10;
+}
+
+.metodo-step .description {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease-out;
+}
+
+.metodo-step:hover .description {
+  max-height: 200px;
+}
+
+@keyframes reveal {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.reveal {
+  animation: reveal 1s forwards;
+}
